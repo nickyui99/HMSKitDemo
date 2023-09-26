@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button btnAccountKit;
+    Button btnAccountKit, btnPushKit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +20,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView(){
         btnAccountKit = findViewById(R.id.buttonHomeAccountKit);
-        btnAccountKit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), AccountKitActivity.class);
-                startActivity(i);
-            }
-        });
+        btnAccountKit.setOnClickListener(this);
+        btnPushKit = findViewById(R.id.buttonHomePushKit);
+        btnPushKit.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.buttonHomeAccountKit:
+                Intent accKitActivityIntent = new Intent(getApplicationContext(), AccountKitActivity.class);
+                startActivity(accKitActivityIntent);
+                break;
+            case R.id.buttonHomePushKit:
+                Intent pushKitActivityIntent  = new Intent(getApplicationContext(), PushKitActivity.class);
+                startActivity(pushKitActivityIntent);
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -149,8 +149,10 @@ public class AccountKitActivity extends AppCompatActivity {
         // 1. Use AccountAuthParams to specify the user information to be obtained after user authorization, including the user ID (OpenID and UnionID), email address, and profile (nickname and picture).
         // 2. By default, DEFAULT_AUTH_REQUEST_PARAM specifies two items to be obtained, that is, the user ID and profile.
         // 3. If your app needs to obtain the user's email address, call setEmail().
+        // 4. To support ID token-based HUAWEI ID sign-in, use setIdToken(). User information can be parsed from the ID token.
         mAuthParam = new AccountAuthParamsHelper(AccountAuthParams.DEFAULT_AUTH_REQUEST_PARAM)
                 .setEmail()
+                .setIdToken()
                 .createParams();
 
         // Use AccountAuthParams to build AccountAuthService.
@@ -199,6 +201,7 @@ public class AccountKitActivity extends AppCompatActivity {
         Log.i(TAG, "email:" + authAccount.getEmail());
         Log.i(TAG, "openid:" + authAccount.getOpenId());
         Log.i(TAG, "unionid:" + authAccount.getUnionId());
+        Log.i(TAG, "id token:" + authAccount.getIdToken());
         // TODO: Implement service logic after the HUAWEI ID information is obtained.
 
         /**

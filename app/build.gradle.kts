@@ -43,7 +43,10 @@ dependencies {
      * HMS DEPENDENCIES
      */
     //Huawei Account Kit
-    implementation("com.huawei.hms:hwid:6.11.0.300")
+    implementation("com.huawei.hms:hwid:6.12.0.300")
     //HMS Core Installer (Optional)
-    implementation("com.huawei.hms:hmscoreinstaller:6.11.0.301")
+    implementation("com.huawei.hms:hmscoreinstaller:6.12.0.300")
+    implementation ("com.huawei.agconnect:agconnect-core:1.9.1.301")
+    //HMS Push Kit
+    implementation ("com.huawei.hms:push:6.11.0.300")
 }
